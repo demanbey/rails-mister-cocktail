@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Cocktail.destroy_all if Rails.env.development?
+Ingredient.destroy_all if Rails.env.development?
+Dose.destroy_all
 
 require 'open-uri'
 require 'json'
@@ -13,19 +16,22 @@ url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
 json = open(url).read
 ingredients = JSON.parse(json)
 
-ingredient_list = ingredients["drinks"].each do |h|
-  Ingredient.create!(h["strIngredient1"])
+ingredients["drinks"].each do |ingredient|
+  i = Ingredient.create!(name: ingredient["strIngredient1"])
+  puts "create #{i.name}"
 end
+
+gin = Ingredient.new(name: "gin")
+whiskey = Ingredient.new(name: "whiskey")
+cherry = Ingredient.new(name: "cherry")
+cherry_liquor = Ingredient.new(name: "cherry liquor")
 
 
 
 av = Cocktail.create!(name: "Aviation")
-Dose.create!(cocktail_id = av.id, ingredient_id = gin.id, description = "Two parts")
-Dose.create!(cocktail_id = av.id, ingredient_id = whiskey.id, description = "Two parts")
-Dose.create!(cocktail_id = av.id, ingredient_id = cherry.id, description = "One")
+b = Dose.new(description: "Two parts")
+b.cocktail = av
+b.ingredient = gin
+b.save!
 
-
-man = Cocktail.create!(name: "Manhattan")
-Dose.create!(cocktail_id = man.id, ingredient_id = ingredient.id, description = "Two parts")
-Dose.create!(cocktail_id = man.id, ingredient_id = whiskey.id, description = "Three parts")
-Dose.create!(cocktail_id = man.id, ingredient_id = cherry_liquor.id, description = "One")
+puts "seeds finished"
