@@ -1,15 +1,32 @@
-
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
-    <div class="container">
-      <h1><%= @cocktail.name %></h1>
-      <%= link_to "Back to all cocktails", root_path %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @cocktail.photo, crop: :fill unless @cocktail.photo.blank? %>');">
+ <!--  navbar -->
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <!-- <div class="logo">casgrain cocktails</div> -->
+    <a class="navbar-brand" href="#">
+      <img src="" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active"><%= link_to "Home", root_path, {:style=>'color: white;', :class => "css_class"} %></li>
+        <li class="nav-item"><%= link_to "Create", new_cocktail_path, {:style=>'color: white;'} %></li>
+      </ul>
     </div>
   </div>
-<div class="container">
+  <!-- banner text -->
+  <div class="container show-banner-text">
+    <h1><%= @cocktail.name %></h1>
+    <%#= link_to "Back to Cocktail List", root_path, class: "btn btn-info" %>
+  </div>
+</div>
+<!-- iterating through each cocktail dose and displaying it in a table -->
+<div class="container cocktail-show">
   <div class="row">
-    <div class="col-sm-12 col-md-6">
-      <h3>Recipe</h3>
-      <table class="table table-bordered">
+    <div class="col-sm-12 col-md-7">
+      <h3 class="cocktail-header"><strong>Recipe</strong></h3>
+      <table class="table">
         <tbody>
           <thead>
             <th>Ingredient</th>
@@ -30,9 +47,11 @@
         </tbody>
       </table>
     </div>
-    <div class="col-sm-12 col-md-6">
+    <div class="col-sm-12 col-md-1">
+    </div>
+  <!-- Putting the form to create a dose in a row with the table displaying all of the doses -->
+    <div class="col-sm-12 col-md-4">
       <%= render "form", cocktail: @cocktail, dose: @dose %>
     </div>
   </div>
 </div>
-

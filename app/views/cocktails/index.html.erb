@@ -1,21 +1,42 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
-  <div class="container">
-    <h1>Cocktails!</h1>
-    <%= link_to "Create a new cocktail", new_cocktail_path, class: "btn btn-flat" %>
+
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('<%= cl_image_path 'fuhemi5aj0t9hdnjrssc' %>');">
+<!-- navbar -->
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+   <!--  <div class="logo">casgrain cocktails</div> -->
+    <a class="navbar-brand" href="#">
+      <img src="" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active"><%= link_to "Home", root_path, {:style=>'color: white;', :class => "css_class"} %></li>
+        <li class="nav-item"><%= link_to "Create", new_cocktail_path, {:style=>'color: white;'} %></li>
+      </ul>
+    </div>
+  </div>
+<!-- banner text -->
+  <div class="container banner-text">
+    <h1><strong>Casgrain Cocktails</strong></h1>
+    <p>Where you can create and browse recipes.</p>
+    <br>
+    <%= link_to "Create a new cocktail", new_cocktail_path, class: "btn btn-info" %>
   </div>
 </div>
-
-<div class="container cocktails">
-  <% @cocktail.each do |cocktail| %>
-    <div class="col-xs-12">
-      <div class="cards">
-        <div class="card-category wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-          <div><h2><%= link_to cocktail.name, cocktail_path(cocktail.id) %></h2></div>
-        </div>
+<!-- iterating through each cocktail name and displaying each in a card  -->
+<div class="container cocktail-list">
+  <div class="cocktail-header">
+    <h3 class="browse-header"><strong>Browse cocktail recipes</strong></h3>
+    <p>Click on a cocktail to view the recipe and add or delete ingredients.</p>
+  </div>
+  <div class="cards">
+    <% @cocktail.each do |cocktail| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo, width: 400, height: 300, crop: :fill unless cocktail.photo.blank? %>');">
+        <h2><%= link_to cocktail.name, cocktail_path(cocktail.id), class: "cocktail-name" %></h2>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
-
-
 

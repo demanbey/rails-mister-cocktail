@@ -1,10 +1,11 @@
-// Place all the styles related to the Cocktails controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 
 // index
 // list of cocktails
+
+
+.cocktail-header {
+  padding-bottom: 20px;
+}
 
 .cocktail-name {
   color: white;
@@ -16,14 +17,40 @@
 }
 
 .cocktail-list {
-  padding-top: 50px 0px;
+  padding: 50px 0px;
 }
 
+.browse-header {
+  padding-bottom: 20px;
+}
 
 // new
 
-.form-text {
+.options {
   color: white;
+}
+
+// show
+
+.cocktail-show {
+  padding: 60px 0px;
+}
+
+.fa-trash {
+  color: $gray;
+  text-align: center;
+}
+
+.thead {
+  border: none;
+}
+
+.table {
+  padding: 0px 40px 40px 40px;
+}
+
+h4 {
+  padding-bottom: 20px;
 }
 
 
