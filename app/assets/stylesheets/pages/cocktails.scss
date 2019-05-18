@@ -6,6 +6,10 @@
 // index
 // list of cocktails
 
+.cocktail-header {
+  padding: 20px 0px;
+}
+
 .cocktail-name {
   color: white;
 }
@@ -16,9 +20,8 @@
 }
 
 .cocktail-list {
-  padding-top: 50px 0px;
+  padding: 70px 0px;
 }
-
 
 // new
 
@@ -26,11 +29,17 @@
   color: white;
 }
 
-
 // show
 
 .cocktail-show {
   padding: 60px 0px;
 }
 
+.fa-trash {
+  color: $gray;
+  text-align: center;
+}
 
+.thead {
+  border: none;
+}

@@ -1,15 +1,15 @@
 
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @cocktail.photo, crop: :fill unless @cocktail.photo.blank? %>');">
-    <div class="container">
+    <div class="container show-banner-text">
       <h1><%= @cocktail.name %></h1>
-      <%= link_to "Back to all cocktails", root_path %>
+      <%= link_to "Back to Cocktail List", root_path, class: "btn btn-info" %>
     </div>
   </div>
 <div class="container cocktail-show">
   <div class="row">
     <div class="col-sm-12 col-md-6">
-      <h5>Recipe</h5>
-      <table class="table table-bordered">
+      <h4>Recipe</h4>
+      <table class="table">
         <tbody>
           <thead>
             <th>Ingredient</th>
