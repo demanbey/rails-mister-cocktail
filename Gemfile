@@ -20,7 +20,10 @@ gem 'webpacker'
 
 # putting secret keys
 gem 'dotenv-rails', groups: [:development, :test]
-
+# cloudinary
+gem 'cloudinary', '~> 1.9.1'
+# for photos
+gem 'carrierwave', '~> 1.2'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

@@ -1,21 +1,22 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
-  <div class="container">
-    <h1>Cocktails!</h1>
-    <%= link_to "Create a new cocktail", new_cocktail_path, class: "btn btn-flat" %>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.6)), url('<%= cl_image_path 'fuhemi5aj0t9hdnjrssc' %>');">
+  <div class="container banner-text">
+    <h1>Cocktails</h1>
+    <p>Create and browse cocktail recipes!</p>
+    <br>
+    <%= link_to "Create a new cocktail", new_cocktail_path, class: "btn btn-info" %>
   </div>
 </div>
-
-<div class="container cocktails">
-  <% @cocktail.each do |cocktail| %>
-    <div class="col-xs-12">
-      <div class="cards">
-        <div class="card-category wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-          <div><h2><%= link_to cocktail.name, cocktail_path(cocktail.id) %></h2></div>
-        </div>
-      </div>
-    </div>
-  <% end %>
 </div>
 
-
+<div class="container cocktail-list">
+<h4 class="cocktail-header">Browse our cocktails</h4>
+  <div class="cards">
+    <% @cocktail.each do |cocktail| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo, width: 400, height: 300, crop: :fill unless cocktail.photo.blank? %>');">
+        <h2><%= link_to cocktail.name, cocktail_path(cocktail.id), class: "cocktail-name" %></h2>
+      </div>
+    <% end %>
+  </div>
+</div>
 

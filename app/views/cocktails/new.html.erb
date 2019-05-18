@@ -1,12 +1,20 @@
-<div class="container">
-  <div class="row">
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.6)), url('<%= cl_image_path 'fuhemi5aj0t9hdnjrssc' %>');">
+  <div class="container banner-text">
+    <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <h1>Create a new cocktail</h1>
+      <br>
 
       <%= simple_form_for @cocktail do |f| %>
-        <%= f.input :name %>
+        <%= f.input :name, class: 'form-text' %>
+        <%= f.input :photo, class: 'form-text' %>
+        <%= f.input :photo_cache, as: :hidden %>
+        <br>
         <%= f.button :submit, class: 'btn btn-primary' %>
       <% end %>
     </div>
   </div>
+  </div>
+</div>
 </div>

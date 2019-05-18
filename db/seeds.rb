@@ -21,17 +21,4 @@ ingredients["drinks"].each do |ingredient|
   puts "create #{i.name}"
 end
 
-gin = Ingredient.new(name: "gin")
-whiskey = Ingredient.new(name: "whiskey")
-cherry = Ingredient.new(name: "cherry")
-cherry_liquor = Ingredient.new(name: "cherry liquor")
-
-
-
-av = Cocktail.create!(name: "Aviation")
-b = Dose.new(description: "Two parts")
-b.cocktail = av
-b.ingredient = gin
-b.save!
-
 puts "seeds finished"
