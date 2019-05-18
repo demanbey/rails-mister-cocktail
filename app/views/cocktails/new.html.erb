@@ -1,15 +1,32 @@
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.6)), url('<%= cl_image_path 'fuhemi5aj0t9hdnjrssc' %>');">
+<!--  navbar -->
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <a class="navbar-brand" href="#">
+      <img src="" />
+    </a>
+    <!-- <div class="logo">casgrain cocktails</div> -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active"><%= link_to "Home", root_path, {:style=>'color: white;', :class => "css_class"} %></li>
+        <li class="nav-item"><%= link_to "Create", new_cocktail_path, {:style=>'color: white;'} %></li>
+      </ul>
+    </div>
+  </div>
+<!-- banner text -->
   <div class="container banner-text">
     <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <h1>Create a new cocktail</h1>
       <br>
-
+<!-- a simple form to create a new cocktail -->
       <%= simple_form_for @cocktail do |f| %>
-        <%= f.input :name, class: 'form-text' %>
-        <%= f.input :photo, class: 'form-text' %>
-        <%= f.input :photo_cache, as: :hidden %>
+        <%= f.input :name, wrapper_html: { class: 'options' } %>
+        <%= f.input :photo, wrapper_html: { class: 'options' }%>
+        <%= f.input :photo_cache, as: :hidden, wrapper_html: { class: 'options' } %>
         <br>
         <%= f.button :submit, class: 'btn btn-primary' %>
       <% end %>

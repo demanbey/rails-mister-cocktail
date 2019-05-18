@@ -1,4 +1,4 @@
-<h3>Add a new ingredient</h3>
+<h4><strong>Add a new ingredient</strong></h4>
 <%= simple_form_for [@cocktail, @dose] do |f| %>
   <%= f.association :ingredient, input_html: { class: "beautiful-dropdown" }, include_hidden: false, collection: Ingredient.order('name ASC') %>
   <%= f.input :description %>
